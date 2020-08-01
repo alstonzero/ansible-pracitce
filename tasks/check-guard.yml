@@ -7,7 +7,9 @@
   #输入内容存入ui.user_input中  
   registor: ui
   check_mode: no
+  #在非check_mode下才能执行
   when: not ansible_check_mode and not (apply_without_checkmode is defined) 
+  #只在一台服务器中运行任务，并直到这个任务完成继续下一个任务
   run_once: true
   #always : 除非skip-tags指定这个标签，否则tags为always的task一直会执行; --tags always　只执行标记了always的tasks 
   tags: always
